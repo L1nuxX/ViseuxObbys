@@ -1,0 +1,31 @@
+local lib = loadstring(game:HttpGet('https://raw.githubusercontent.com/L1nuxX/Viseux/main/AquaLib.lua'))()
+
+local window = lib.createWindow("Viseux", "Viseux", true)
+
+local Player = window.createTab("Player")
+local Visuals = window.createTab("Visual")
+
+local FullBright = Visuals.createSection("FullBright", false)
+local Speed = Player.createSection("Speed", false)
+
+window.notification("Viseux", "Viseux Free Roblox Exploit")
+
+FullBright.createToggle("FullBright", false, function(v)
+        if v then
+            game:GetService("Lighting").Brightness = 2
+            game:GetService("Lighting").ClockTime = 14
+            game:GetService("Lighting").FogEnd = 100000
+            game:GetService("Lighting").GlobalShadows = false
+            game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(128, 128, 128)
+        else
+            game:GetService("Lighting").Brightness = 3
+            game:GetService("Lighting").ClockTime = 20
+            game:GetService("Lighting").FogEnd = 1.1111111533265e+16
+            game:GetService("Lighting").GlobalShadows = true
+            game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(0.5, 0.5, 0.5)
+        end
+end)
+
+Speed.createSlider("Value", {defualt = 10, max = 32, min = 1}, function(speedhackvalue)
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speedhackvalue
+end)
